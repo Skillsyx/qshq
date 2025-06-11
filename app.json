@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/cart",
+    "pages/profile",
+    "pages/modeSelect/modeSelect",
+    "pages/checkout/reserve/reserve",
+    "pages/checkout/express/express",
+    "pages/order/order",
+    "pages/merchant/orders/orders",
+    "pages/login/login"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "全盛活禽",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+
+  "tabBar": {
+
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "assets/home.png",
+      "selectedIconPath": "assets/home.png"
+    },
+    {
+      "pagePath": "pages/cart",
+      "text": "购物车",
+      "iconPath": "assets/cart.png",
+      "selectedIconPath": "assets/cart.png"
+    },
+    {
+      "pagePath": "pages/profile",
+      "text": "我的",
+      "iconPath": "assets/profile.png",
+      "selectedIconPath": "assets/profile.png"
+    }
+  ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
