@@ -1,2 +1,20 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="home-wrapper">
+
+<view class="title">欢迎，请选择服务方式</view>
+
+<van-grid column-num="2" gutter="20">
+  <van-grid-item
+    icon="clock-o"
+    text="我要预约"
+    use-slot
+    bindtap="goBooking"
+  />
+  <van-grid-item
+    icon="logistics"
+    text="我要快递"
+    use-slot
+    bindtap="goExpress"
+  />
+</van-grid>
+
+</view>

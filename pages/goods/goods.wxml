@@ -1,0 +1,31 @@
+<view class="page-wrap">
+  <block wx:for="{{productList}}" wx:key="id">
+    <view style="background-color: {{item.bgColor}}; padding: 5rpx; border-radius: 10rpx; margin-bottom: 2rpx;">
+      <van-card
+        title="{{item.name}}"
+        tag="{{index < 3 ? '热销' : ''}}"
+
+
+        price="{{item.price}} / {{item.unit}}"
+        thumb="{{item.image_url}}"
+        thumb-mode="aspectFill"
+      >
+      <view slot="desc">
+    <view>规格：{{item.spec}}</view>
+    <view>描述：{{item.description}}</view>
+  </view>
+        <view slot="footer" class="footer-buttons">
+          <van-icon 
+            name="add"
+            size="25px"
+            color="#1989fa"
+            data-id="{{item.id}}"
+            bindtap="onAddToCart"
+          />
+        </view>
+      </van-card>
+
+
+    </view>
+  </block>
+</view>
