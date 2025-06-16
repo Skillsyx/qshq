@@ -1,66 +1,33 @@
-// pages/cart.js
+
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    cart: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow() {
+    const cart = wx.getStorageSync('cart') || [];
+    this.setData({ cart });
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onRemoveItem(e) {
+    const id = e.currentTarget.dataset.id;
+    let cart = this.data.cart;
+  
+    // 查找该商品在购物车中的索引
+    const index = cart.findIndex(item => item.id == id);
+    if (index !== -1) {
+      if (cart[index].quantity > 1) {
+        cart[index].quantity -= 1; // 数量减 1
+      } else {
+        cart.splice(index, 1); // 数量为 1，删除整个商品
+      }
+    }
+  
+    // 更新缓存和页面数据
+    wx.setStorageSync('cart', cart);
+    this.setData({ cart });
   }
-})
+  
+});

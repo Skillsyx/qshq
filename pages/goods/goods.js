@@ -8,6 +8,36 @@ Page({
   data: {
     productList: []
   },
+  onAddToCart(e) {
+    const productId = e.currentTarget.dataset.id; // ✅ 拼写修正
+  
+    const product = this.data.productList.find(p => p.id == productId);
+    if (!product) return;
+  
+    let cart = wx.getStorageSync('cart') || [];
+  
+    // ✅ 判断是否已存在该商品
+    const index = cart.findIndex(item => item.id == productId);
+    if (index !== -1) {
+      cart[index].quantity += 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+  
+    // ✅ 存入缓存
+    wx.setStorageSync('cart', cart);
+    console.log(wx.getStorageSync('cart'))
+
+  
+    // ✅ 提示
+    wx.showToast({
+      title: '已加入购物车',
+      icon: "success",
+      duration: 1000
+    });
+  },
+  
+
 
   /**
    * 生命周期函数--监听页面加载

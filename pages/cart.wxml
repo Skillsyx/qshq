@@ -1,2 +1,36 @@
-<!--pages/cart.wxml-->
-<text>pages/cart.wxml</text>
+<view class="page-wrap">
+  <block wx:if="{{cart.length > 0}}">
+    <block wx:for="{{cart}}" wx:key="id">
+      <van-card
+        title="{{item.name}}"
+       
+        thumb="{{item.image_url}}"
+        thumb-mode="aspectFill"
+        num ="{{item.quantity}}"
+      >
+
+      <view slot="desc">
+    <view>规格：{{item.spec}}</view>
+    <view>描述：{{item.description}}</view>
+  </view>
+        <view slot="footer" class="footer-buttons">
+          <van-icon
+            name="delete"
+            size="20px"
+            color="#ee0a24"
+            data-id="{{item.id}}"
+            bindtap="onRemoveItem"
+          />
+        </view>
+      </van-card>
+    </block>
+  </block>
+
+  <block wx:else>
+    <view class="empty">购物车为空</view>
+  </block>
+  <van-goods-action>
+
+  <van-goods-action-button text="立即购买" bind:click="onClickButton" />
+</van-goods-action>
+</view>
