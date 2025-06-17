@@ -1,2 +1,5 @@
-<!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view class="container">
+  <van-button type="primary" block open-type="getUserInfo" bindtap="handleLogin">
+    微信一键登录
+  </van-button>
+</view>
