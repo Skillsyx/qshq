@@ -18,3 +18,4 @@
 </van-grid>
 
 </view>
+<custom-tabbar />

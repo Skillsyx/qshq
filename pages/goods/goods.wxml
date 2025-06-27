@@ -29,3 +29,16 @@
     </view>
   </block>
 </view>
+
+<t-fab
+
+  icon="cart"
+  size="small"
+  bind:click="goToCart"
+  draggable="true"
+
+  style="bottom: 120rpx; right: 32rpx;"
+>
+
+</t-fab>
+<custom-tabbar />

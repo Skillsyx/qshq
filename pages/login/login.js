@@ -15,6 +15,7 @@ Page({
       success(res) {
         const code = res.code
         console.log(res.code)
+        console.log(res)
         if (!code) {
           wx.showToast({ title: '登录失败', icon: 'none' })
           that.setData({ loading: false })
@@ -25,6 +26,7 @@ Page({
           .then(user => {
             setToken(user.openid) // 简化：用 openid 作为 token
             setUserInfo(user)
+            console.log(user)
 
             wx.showToast({ title: '登录成功', icon: 'success' })
             wx.reLaunch({

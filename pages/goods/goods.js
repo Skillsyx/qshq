@@ -6,8 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    productList: []
+    productList: [],
+    cartCount:0
   },
+ 
+
+  getCartCount() {
+    const cart = wx.getStorageSync('cart') || [];
+    this.setData({
+      cartCount: cart.length
+    });
+    console.log(this.cartCount)
+  },
+  goToCart(){
+    wx.switchTab({
+      url: '/pages/cart',
+    })
+  },
+
   onAddToCart(e) {
     const productId = e.currentTarget.dataset.id; // ✅ 拼写修正
   
@@ -66,6 +82,14 @@ Page({
    */
   onShow() {
 
+    this.getCartCount()
+
+    if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+      this.getTabBar().setData({
+        active: 'goods'
+      })
+    }
   },
 
   /**

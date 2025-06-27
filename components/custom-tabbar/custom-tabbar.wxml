@@ -1,0 +1,9 @@
+<t-tab-bar value="{{active}}" bind:change="onChange">
+  <t-tab-bar-item value="home" icon="home">首页</t-tab-bar-item>
+  <t-tab-bar-item value="goods" icon="shop">商品</t-tab-bar-item>
+  <t-tab-bar-item value="cart" icon="cart">
+    <t-badge count="{{cartCount}}" slot="icon" />
+    购物车
+  </t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user">我的</t-tab-bar-item>
+</t-tab-bar>

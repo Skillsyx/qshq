@@ -1,5 +1,5 @@
 
-const BASE_URL = 'http://47.117.37.186:8668'
+const BASE_URL = 'https://api.quanshenghuoqin.com'
 
 export const getProductList = () => {
   return new Promise((resolve, reject) => {
